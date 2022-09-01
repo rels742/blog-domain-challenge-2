@@ -12,6 +12,16 @@ async function seed() {
 
   console.log("Customer created", createdUser);
 
+  const createdProfile = await prisma.profile.create({
+    data: {
+      firstName: "Alice",
+      lastName: "Sim",
+      age: 24,
+      pictureUrl: "www.fakepicurl.com",
+      userId: createdUser.id,
+    },
+  });
+
   process.exit(0);
 }
 
