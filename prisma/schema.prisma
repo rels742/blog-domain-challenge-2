@@ -54,3 +54,11 @@ model Category {
   updatedAt DateTime @updatedAt
   posts     Post[]
 }
+
+// Do model for comment 
+//add user one to many
+//then update the seed but comment it out
+//then add post one to many 
+// then add the seed and comment it out 
+// attempt the self one to many
+//attempt the seed and the comment it out to show for tomorrow

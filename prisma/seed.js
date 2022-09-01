@@ -39,6 +39,36 @@ async function seed() {
   });
   console.log("categories created", createdPost);
 
+  const createdCategory = await prisma.category.create({
+    data: {
+      name: "Activities",
+      posts: {
+        create: [
+          {
+            title: "Fun things to do in London",
+            content: "Here are top ten fun things to do in London...",
+            imageUrl: "https://www.londonimage.com",
+            publishedAt: new Date("August 29, 2022 18:00:00"),
+            userId: createdUser.id,
+          },
+          {
+            title: "Next months events",
+            content:
+              "Wondering what events to hit up next month, read below you don't want to miss these...",
+            imageUrl: "https://www.eventsimage.com",
+            publishedAt: new Date("August 30, 2022 21:45:00"),
+            userId: createdUser.id,
+          },
+        ],
+      },
+    },
+    include: {
+      posts: true,
+    },
+  });
+
+  console.log("posts created", createdCategory);
+
   process.exit(0);
 }
 
