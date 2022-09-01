@@ -22,6 +22,16 @@ async function seed() {
     },
   });
 
+  const createdPost = await prisma.post.create({
+    data: {
+      title: "Careers in Tech",
+      content:
+        "Always wondered what career options are avaliable in the tech industry? Read on to find out what the most in demand tech jobs are...",
+      imageUrl: "https://www.faketechimage.com",
+      userId: createdUser.id,
+    },
+  });
+
   process.exit(0);
 }
 
