@@ -29,8 +29,15 @@ async function seed() {
         "Always wondered what career options are avaliable in the tech industry? Read on to find out what the most in demand tech jobs are...",
       imageUrl: "https://www.faketechimage.com",
       userId: createdUser.id,
+      categories: {
+        create: [{ name: "Tech" }, { name: "Careers" }],
+      },
+    },
+    include: {
+      categories: true,
     },
   });
+  console.log("categories created", createdPost);
 
   process.exit(0);
 }
