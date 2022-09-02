@@ -7,13 +7,13 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  // console.log("got a GET quest to /");
-
-  res.json({ hello: "hello" });
-});
+// keep my require routers in here
+const userRouter = require("./routers/users");
+app.use("/users", userRouter);
 
 const port = 3030;
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}/`);
 });
+
+module.exports = app;
