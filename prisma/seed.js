@@ -66,8 +66,15 @@ async function seed() {
       posts: true,
     },
   });
-
   console.log("posts created", createdCategory);
+
+  const createdComment = await prisma.comment.create({
+    data: {
+      content: "Thanks a lot!",
+      userId: createdUser.id,
+      postId: createdPost.id,
+    },
+  });
 
   process.exit(0);
 }
